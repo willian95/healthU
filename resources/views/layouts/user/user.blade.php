@@ -44,6 +44,9 @@
             <!-- Custom scripts for all pages-->
             <script src="{{ asset('assets/js/custom.js') }}"></script>
             <script src="{{ asset('/js/app.js') }}"></script>
+
+            @stack('scripts')
+
         </body>
 
 <!-- Mirrored from askbootstrap.com/preview/vidoe-v2-1/theme-three/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Apr 2020 22:49:33 GMT -->

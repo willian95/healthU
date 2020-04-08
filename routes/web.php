@@ -19,3 +19,6 @@ Route::get('/', function () {
 
 Route::get('/login', "AuthController@loginIndex");
 Route::get('/register', "AuthController@registerIndex");
+Route::post('/register', "AuthController@register");
+Route::post('/login', "AuthController@login");
+Route::get('/logout', "AuthController@logout");

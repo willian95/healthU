@@ -5,36 +5,40 @@
 <section class="login-main-wrapper">
     <div class="container-fluid pl-0 pr-0">
         <div class="row no-gutters">
-            <div class="col-md-5 p-5 bg-white full-height">
+            <div class="col-md-5 bg-white full-height">
                 <div class="login-main-left">
                     <div class="text-center mb-5 login-main-left-header pt-4">
                     <img src="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/img/favicon.png" class="img-fluid" alt="LOGO">
-                    <h5 class="mt-3 mb-3">Welcome to Vidoe</h5>
-                    <p>It is a long established fact that a reader <br> will be distracted by the readable.</p>
+                    <!--<h5 class="mt-3 mb-3">Welcome to Vidoe</h5>
+                    <p>It is a long established fact that a reader <br> will be distracted by the readable.</p>-->
                     </div>
                     <!--<form action="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/index.html">-->
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="¿Como te llamas?">
+                        <input type="text" class="form-control" placeholder="¿Como te llamas?" v-model="name">
+                    </div>
+                    <div class="form-group">
+                        <label>Nickname</label>
+                        <input type="text" class="form-control" placeholder="¿Como te llamas?" v-model="nickname">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" placeholder="john@email.com">
+                        <input type="text" class="form-control" placeholder="john@email.com" v-model="email">
                     </div>
                     <div class="form-group">
                         <label>Clave</label>
-                        <input type="password" class="form-control" placeholder="clae">
+                        <input type="password" class="form-control" placeholder="clave" v-model="password">
                     </div>
                     <div class="form-group">
                         <label>Confirmar clave</label>
-                        <input type="text" class="form-control" placeholder="Clave">
+                        <input type="password" class="form-control" placeholder="Clave" v-model="password_confirmation">
                     </div>
                     <div class="mt-4">
-                        <button type="submit" class="btn btn-outline-primary btn-block btn-lg">Sign Up</button>
+                        <button type="button" class="btn btn-outline-primary btn-block btn-lg" @click="register()">Sign Up</button>
                     </div>
                     <!--</form>-->
                     <div class="text-center mt-5">
-                    <p class="light-gray">Already have an Account? <a href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/login.html">Sign In</a></p>
+                    <p class="light-gray">Already have an Account? <a href="{{ url('/login') }}">Sign In</a></p>
                     </div>
                 </div>
             </div>
@@ -70,3 +74,62 @@
 </section>
 
 @endsection
+
+@push('scripts')
+    
+    <script>
+            
+        const app = new Vue({
+            el: '#dev-app',
+            data(){
+                return{
+                    name:"",
+                    nickname:"",
+                    email:'',
+                    password:"",
+                    password_confirmation:""
+                }
+            },
+            methods:{
+                
+                register(){
+                    
+                    let formData = new FormData()
+                    formData.append("name", this.name)
+                    formData.append("email", this.email)
+                    formData.append("nickname", this.nickname)
+                    formData.append("password", this.password)
+                    formData.append("password_confirmation", this.password_confirmation)
+
+                    axios.post("{{ url('/register') }}", formData)
+                    .then(res => {
+
+                        if(res.data.success == true){
+                            alert(res.data.msg)
+                            window.location.href="{{ url('/') }}"
+                        }else{
+
+                            alert(res.data.msg)
+
+                        }
+
+                    })
+                    .catch(err => {
+                        $.each(err.response.data.errors, function(key, value){
+                            alert(value)
+                        });
+                    })
+
+                }
+
+            },
+            mounted(){
+                //this.test()
+            }
+
+        })
+
+    </script>
+
+
+@endpush

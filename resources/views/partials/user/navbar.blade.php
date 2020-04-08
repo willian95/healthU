@@ -23,6 +23,21 @@
                 Upload Video
             </a>
         </li>
+        @if(Auth::check() && Auth::user()->id)
+        <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
+            <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img alt="Avatar" src="{{ asset('assets/img/user.png') }}">
+                {{ Auth::user()->nickname }} 
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/account.html"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
+                <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
+                <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
+            </div>
+        </li>
+        @else
         <li class="nav-item mx-1">
             <a class="nav-link" href="{{ url('/login') }}">
                 <i class="fas fa-plus-circle fa-fw"></i>
@@ -35,6 +50,7 @@
                 Register
             </a>
         </li>
+        @endif
         <!--<li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>

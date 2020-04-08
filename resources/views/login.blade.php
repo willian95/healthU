@@ -14,23 +14,23 @@
                         </div>
                         <form action="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/index.html">
                         <div class="form-group">
-                            <label>Mobile number</label>
-                            <input type="text" class="form-control" placeholder="Enter mobile number">
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="Ingresa tu correo" v-model="email">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" v-model="password">
                         </div>
                         <div class="mt-4">
                             <div class="row">
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-outline-primary btn-block btn-lg">Sign In</button>
+                                    <button type="submit" class="btn btn-outline-primary btn-block btn-lg" @click="login()">Sign In</button>
                                 </div>
                             </div>
                         </div>
                         </form>
                         <div class="text-center mt-5">
-                        <p class="light-gray">Don’t have an account? <a href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/register.html">Sign Up</a></p>
+                        <p class="light-gray">Don’t have an account? <a href="{{ url('/register') }}">Sign Up</a></p>
                         </div>
                     </div>
                 </div>
@@ -66,3 +66,56 @@
     </section>
 
 @endsection
+
+@push('scripts')
+    
+    <script>
+            
+        const app = new Vue({
+            el: '#dev-app',
+            data(){
+                return{
+                    email:'',
+                    password:""
+                }
+            },
+            methods:{
+                
+                register(){
+                    
+                    let formData = new FormData()
+                    formData.append("email", this.email)
+                    formData.append("password", this.password)
+
+                    axios.post("{{ url('/login') }}", formData)
+                    .then(res => {
+
+                        if(res.data.success == true){
+                            
+                            window.location.href="{{ url('/') }}"
+                        }else{
+
+                            alert(res.data.msg)
+
+                        }
+
+                    })
+                    .catch(err => {
+                        $.each(err.response.data.errors, function(key, value){
+                            alert(value)
+                        });
+                    })
+
+                }
+
+            },
+            mounted(){
+                //this.test()
+            }
+
+        })
+
+    </script>
+
+
+@endpush
