@@ -27,7 +27,7 @@ class AuthController extends Controller
             $user->name = $request->name;
             $user->nickname = $request->nickname;
             $user->email = $request->email;
-            $user->password = $request->password;
+            $user->password = bcrypt($request->password);
             $user->save();
 
             Auth::loginUsingId($user->id);
@@ -47,7 +47,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return response()->json(["success" => true]);
+            return response()->json(["success" => true, "role_id" => Auth::user()->role_id]);
         }
 
         return response()->json(["success" => false, "msg" => "Usuario no encontrado"]);

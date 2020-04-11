@@ -24,7 +24,7 @@
                         <div class="mt-4">
                             <div class="row">
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-outline-primary btn-block btn-lg" @click="login()">Sign In</button>
+                                    <button type="button" class="btn btn-outline-primary btn-block btn-lg" @click="login()">Sign In</button>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
             },
             methods:{
                 
-                register(){
+                login(){
                     
                     let formData = new FormData()
                     formData.append("email", this.email)
@@ -90,9 +90,14 @@
                     axios.post("{{ url('/login') }}", formData)
                     .then(res => {
 
+                        console.log(res)
+
                         if(res.data.success == true){
                             
-                            window.location.href="{{ url('/') }}"
+                            if(res.data.role_id == 1)
+                                window.location.href="{{ url('/') }}"
+                            if(res.data.role_id == 2)
+                                window.location.href="{{ url('/admin/dashboard') }}"
                         }else{
 
                             alert(res.data.msg)

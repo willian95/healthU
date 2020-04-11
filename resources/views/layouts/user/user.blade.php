@@ -45,6 +45,25 @@
             <script src="{{ asset('assets/js/custom.js') }}"></script>
             <script src="{{ asset('/js/app.js') }}"></script>
 
+            <script>
+                var isOpen = false
+
+                function toggle(){
+                    
+                    if(isOpen == false){
+                        $("#user-dropdown").addClass('show')
+                        isOpen = true
+                    }
+                    else{
+                        $("#user-dropdown").removeClass('show')
+                        isOpen = false
+                    }
+
+
+                }
+
+            </script>
+
             @stack('scripts')
 
         </body>
