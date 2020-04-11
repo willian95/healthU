@@ -17,8 +17,8 @@
                     <div class="col-xl-3 col-sm-6 mb-3" v-for="video in videos">
                         <div class="video-card">
                             <div class="video-card-image">
-                                <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                <a :href="video.link"><img class="img-fluid" src="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/img/v5.png" alt=""></a>
+                                <a class="play-icon" :href="video.link" target="_blank"><i class="fas fa-play-circle"></i></a>
+                                <a :href="video.link" target="_blank"><img class="img-fluid" src="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/img/v5.png" alt=""></a>
                                 <div class="time">3:50</div>
                             </div>
                             <div class="video-card-body">
