@@ -35,3 +35,8 @@ Route::get('/admin/videos/fetch/{page}', 'VideoController@fetch');
 Route::post('/admin/videos/approve/', 'VideoController@approve');
 Route::post('/admin/videos/reject/', 'VideoController@reject');
 
+Route::get('/admin/users/index', 'UserController@adminIndex')->name('admin.users.index');
+Route::get('/admin/users/fetch/{page}', 'UserController@getAllUsers');
+Route::post('/admin/users/upgradeTrainer', 'UserController@upgradeTrainer');
+Route::post('/admin/users/downgradeUser', 'UserController@downgradeUser');
+

@@ -32,6 +32,11 @@
                         <div>Videos</div>
                     </a>
                 </li>
+                <li class="sidenav-item">
+                    <a href="{{ route('admin.users.index') }}" class="sidenav-link">
+                        <div>Usuarios</div>
+                    </a>
+                </li>
                 
                 <li class="sidenav-item">
                     <a href="{{ url('/logout') }}" class="sidenav-link">

@@ -90,14 +90,12 @@
                     axios.post("{{ url('/login') }}", formData)
                     .then(res => {
 
-                        console.log(res)
-
                         if(res.data.success == true){
                             
-                            if(res.data.role_id == 1)
-                                window.location.href="{{ url('/') }}"
-                            if(res.data.role_id == 2)
+                            if(res.data.role_id == 3)
                                 window.location.href="{{ url('/admin/dashboard') }}"
+                            else
+                                window.location.href="{{ url('/') }}"
                         }else{
 
                             alert(res.data.msg)
