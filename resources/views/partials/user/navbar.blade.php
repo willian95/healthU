@@ -35,11 +35,17 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown" id="user-dropdown">
                 
                 <a class="dropdown-item" href="{{ url('/account') }}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
-                <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
-                <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
+                <a class="dropdown-item" href="{{ url('/account/profile') }}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; Perfil</a>
+                <!--<a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
+                <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>-->
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
             </div>
+        </li>
+        <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
+            <a class="nav-link dropdown-toggle user-dropdown-link">
+                $ 0.00
+            </a>
         </li>
         @else
         <li class="nav-item mx-1">
@@ -108,7 +114,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/login.html">Logout</a>
+                <a class="btn btn-primary" href="{{ url('/logout') }}">Logout</a>
             </div>
         </div>
     </div>

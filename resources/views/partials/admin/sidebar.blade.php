@@ -37,6 +37,18 @@
                         <div>Usuarios</div>
                     </a>
                 </li>
+
+                <li class="sidenav-item">
+                    <a href="{{ route('admin.notice.index') }}" class="sidenav-link">
+                        <div>Noticias</div>
+                    </a>
+                </li>
+
+                <li class="sidenav-item">
+                    <a href="{{ route('admin.category.index') }}" class="sidenav-link">
+                        <div>Categorías</div>
+                    </a>
+                </li>
                 
                 <li class="sidenav-item">
                     <a href="{{ url('/logout') }}" class="sidenav-link">
