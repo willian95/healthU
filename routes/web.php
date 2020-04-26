@@ -29,6 +29,15 @@ Route::post('/upload', "VideoController@store");
 Route::get('/account', 'UserController@account');
 Route::get('/account/notices/fetch', 'AccountController@getNotices');
 Route::get('/account/profile', 'AccountController@profile');
+Route::get('/account/channel/index', 'ChannelController@index');
+Route::post('/account/channel/store', 'ChannelController@store')->name('channel.store');
+Route::get('/account/channel/user/fetch', 'ChannelController@fetchByUser');
+
+Route::get('/channel/slug/{slug}', 'ChannelController@slug');
+Route::get('/channel/user/fetch', 'ChannelController@fetchChannelByUser');
+Route::get('/channel/video/{channelId}/{page}', 'ChannelController@fetchVideosByChannel');
+
+Route::get('/categories/fetch', 'CategoryController@fetchAll');
 
 Route::get('/user/videos/fetch/{page}', 'VideoController@userVideos');
 

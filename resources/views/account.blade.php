@@ -14,9 +14,42 @@
             <div class="video-block section-padding">
                 <div class="row">
                     <div class="col-xl-9 col-lg-9 col-md-12">
-                        
+
                         <div class="row">
-                    
+                            <div class="col-12">
+                                <h3 class="text-center">Canales</h3>
+                                <p class="text-center">
+                                    <a href="{{ url('/account/channel/index') }}" class="btn btn-success">crear</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-4" v-for="channel in channels">
+                                <div class="video-card">
+                                    <div class="video-card-image">
+                                        
+                                        <a :href="'{{ url('/channel/slug/') }}'+'/'+channel.slug" target="_blank"><img class="img-fluid" :src="'{{ url('/images/channels') }}'+'/'+channel.image" alt=""></a>
+                                        
+                                    </div>
+                                    <div class="video-card-body">
+                                        <div class="video-title">
+                                            <a href="#">@{{ channel.namw }}</a>
+                                        </div>
+                                        <div class="video-page text-success">
+                                            @{{ channel.category.name }}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-12">
+                                <h3 class="text-center">Últimos videos</h3>
+                            </div>
+
                             <div class="col-xl-3 col-sm-6 mb-3" v-for="video in videos">
                                 <div class="video-card">
                                     <div class="video-card-image">
@@ -99,7 +132,8 @@
                 return{
                     notices:"",
                     videos:[],
-                    pages:[]
+                    pages:[],
+                    channels:[]
                 }
             },
             methods:{
@@ -124,11 +158,19 @@
 
                     })
 
+                },
+                channelsFetch(){
+
+                    axios.get("{{ url('/account/channel/user/fetch') }}").then(res => {
+                        this.channels = res.data
+                    })
+
                 }
             },
             mounted(){
                 this.fetch()
                 this.fetchNotices()
+                this.channelsFetch()
             }
 
         })

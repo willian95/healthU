@@ -77,6 +77,13 @@ class CategoryController extends Controller
 
     }
 
+    function fetchAll(){
+
+        $categories = Category::all();
+        return response()->json($categories);
+
+    }
+
     function delete(Request $request){
 
         try{

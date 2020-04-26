@@ -29,8 +29,25 @@ class VideoStoreRequest extends FormRequest
             "link" => "required",
             "description" => "required",
             "tags" => "required",
-            "language" => "required"
+            "language" => "required",
+            "channelId" => "required|integer"
 
         ];
+    }
+
+    public function messages(){
+
+        return [
+
+            "title.required" => "El titulo es requerido",
+            "link.required" => "El link es requerido",
+            "description.required" => "Descripción es requerida",
+            "tags.required" => "etiquetas son requeridas",
+            "language.required" => "Idioma es requerido",
+            "channelId.required" => "El canal es requerido",
+            "channelId.integer" => "Debe seleccionar un canal válido",  
+
+        ];
+
     }
 }

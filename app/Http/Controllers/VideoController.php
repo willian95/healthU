@@ -44,6 +44,7 @@ class VideoController extends Controller
             $video->description = $request->description;
             $video->language = $request->language;
             $video->user_id = \Auth::user()->id;
+            $video->channel_id = $request->channelId;
             $video->save();
 
             return response()->json(["success" => true, "msg" => "Video anunciado"]);

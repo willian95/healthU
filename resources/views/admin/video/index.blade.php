@@ -19,7 +19,7 @@
                         <tr v-for="(video, index) in videos">
                             <th>@{{ index + 1 }}</th>
                             <td>@{{ video.title }}</td>
-                            <td><a target="_blank" :href="video.title">ver</a></td>
+                            <td><a target="_blank" :href="video.link">ver</a></td>
                             <td>@{{ video.user.nickname }}</td>
                             <td>
                                 <div v-if="video.status_id == 1">

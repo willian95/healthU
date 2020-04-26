@@ -53,6 +53,14 @@
                                  <input type="text" placeholder="Nathan Drake," id="e8" class="form-control" v-model="cast">
                               </div>
                            </div>
+                           <div class="col-lg-4">
+                              <div class="form-group">
+                                 <label for="e8">Canal</label>
+                                 <select class="form-control" v-model="channelId">
+                                    <option :value="channel.id" v-for="channel in channels">@{{ channel.name }}</option>
+                                 </select>
+                              </div>
+                           </div>
                            <div class="col-lg-3">
                               <div class="form-group">
                                  <label for="e9">Language in Video (Optional)</label>
@@ -116,14 +124,16 @@
                     description:"",
                     tags:"",
                     cast:"",
-                    language:""
+                    language:"",
+                    channelId:"",
+                    channels:[]
                 }
             },
             methods:{
                 
                store(){
                     
-                  axios.post("{{ url('/upload') }}", {title: this.title, link: this.link, description: this.description, tags: this.tags, cast: this.cast, language: this.language})
+                  axios.post("{{ url('/upload') }}", {title: this.title, link: this.link, description: this.description, tags: this.tags, cast: this.cast, language: this.language, channelId:this.channelId})
                   .then(res => {
 
                      if(res.data.success == true){
@@ -135,6 +145,7 @@
                         this.tags = ""
                         this.cast = ""
                         this.language = ""
+                        this.channelId = ""
 
                      }
                      else{
@@ -148,11 +159,18 @@
                      });
                   })
 
+               },
+               fetchChannels(){
+
+                  axios.get("{{ url('/channel/user/fetch') }}").then(res => {
+                     this.channels = res.data 
+                  })
+
                }
 
             },
             mounted(){
-                //this.test()
+               this.fetchChannels()
             }
 
         })
