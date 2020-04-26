@@ -80,7 +80,7 @@ class ChannelController extends Controller
 
             $skip = ($page-1) * 20;
 
-            $videos = Video::skip($skip)->take(20)->get();
+            $videos = Video::where('channel_id', $channelId)->skip($skip)->take(20)->get();
             $videosCount = Video::count();
 
             return response()->json(["success" => true, "videos" => $videos, "videosCount" => $videosCount]);
