@@ -83,7 +83,7 @@
                     name:'{!! Auth::user()->name !!}',
                     nickname:'{!! Auth::user()->nickname !!}',
                     email:'{!! Auth::user()->email !!}',
-                    affiliateKey: "http://servertest.sytes.net/healthU/public/register/affiliate/"+'{!! Auth::user()->affiliate_key !!}',
+                    affiliateKey: "{{ url('/register/affiliate/') }}"+"/"+'{!! Auth::user()->affiliate_key !!}',
                     referrals:[],
                     image:"", //datos de imagen a enviar al servidor
                     imagePreview:'{{ url(Auth::user()->email) }}'
