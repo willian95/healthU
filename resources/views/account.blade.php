@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="video-card-body">
                                         <div class="video-title">
-                                            <a href="#">@{{ channel.namw }}</a>
+                                            <a href="#">@{{ channel.name }}</a>
                                         </div>
                                         <div class="video-page text-success">
                                             @{{ channel.category.name }}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>

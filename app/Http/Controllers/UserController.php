@@ -67,7 +67,22 @@ class UserController extends Controller
 
         }catch(\Exception $e){
 
-            return response()->json(["success" => false, "msg" => "Error en el servidor"]);
+            return response()->json(["success" => false, "msg" => "Error en el servidor", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+
+        }
+
+    }
+
+    function referrals(){
+        
+        try{
+
+            $referrals = User::where('parent_id', \Auth::user()->id)->get();
+            return response()->json(["success" => true,"referrals" => $referrals]);
+
+        }catch(\Exception $e){
+
+            return response()->json(["success" => false, "msg" => "Error en el servidor", "err" => $e->getMessage(), "ln" => $e->getLine()]);
 
         }
 

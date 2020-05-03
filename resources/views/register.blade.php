@@ -25,6 +25,10 @@
                         <label>Email</label>
                         <input type="text" class="form-control" placeholder="john@email.com" v-model="email">
                     </div>
+                    <div class="form-group" v-if="affiliate != ''">
+                        <label>Código de afiliado</label>
+                        <input type="text" class="form-control" v-model="affiliate" readonly>
+                    </div>
                     <div class="form-group">
                         <label>Clave</label>
                         <input type="password" class="form-control" placeholder="clave" v-model="password">
@@ -87,7 +91,8 @@
                     nickname:"",
                     email:'',
                     password:"",
-                    password_confirmation:""
+                    password_confirmation:"",
+                    affiliate:'{!! $affiliate !!}'
                 }
             },
             methods:{
@@ -99,6 +104,7 @@
                     formData.append("email", this.email)
                     formData.append("nickname", this.nickname)
                     formData.append("password", this.password)
+                    formData.append("affiliate", this.affiliate)
                     formData.append("password_confirmation", this.password_confirmation)
 
                     axios.post("{{ url('/register') }}", formData)

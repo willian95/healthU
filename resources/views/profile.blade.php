@@ -35,6 +35,24 @@
                     <input type="text" class="form-control" v-model="email" readonly>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <label for="">Link de afiliado</label>
+                    <input type="text" class="form-control" v-model="affiliateKey" readonly>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <label for="">Referidos</label>
+                </div>
+            </div>
+
+            <div class="row" v-for="referral in referrals">
+                <div class="col-12">
+                    <p>@{{ referral.name }}</p>
+                </div>
+            </div>
             
         </div>
     </div>
@@ -52,15 +70,32 @@
                 return{
                     name:'{!! Auth::user()->name !!}',
                     nickname:'{!! Auth::user()->nickname !!}',
-                    email:'{!! Auth::user()->email !!}'
+                    email:'{!! Auth::user()->email !!}',
+                    affiliateKey: "{{ url('/register/affiliate/') }}"+"/"+'{!! Auth::user()->affiliate_key !!}',
+                    referrals:[]
                 }
             },
             methods:{
                 
+                getReferrals(){
+
+                    axios.get("{{ url('/referrals') }}").then(res => {
+
+                        if(res.data.success == true){
+                            this.referrals = res.data.referrals
+                        }else{
+                            alert(res.data.msg)
+                        }
+
+                    })
+
+                }
                 
             },
             mounted(){
                 
+                this.getReferrals()
+
             }
 
         })

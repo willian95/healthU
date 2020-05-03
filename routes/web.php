@@ -18,7 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/login', "AuthController@loginIndex");
-Route::get('/register', "AuthController@registerIndex");
+Route::get('/register/', "AuthController@registerIndex");
+Route::get('/register/affiliate/{affiliate}', "AuthController@registerIndex");
 Route::post('/register', "AuthController@register");
 Route::post('/login', "AuthController@login");
 Route::get('/logout', "AuthController@logout");
@@ -42,6 +43,8 @@ Route::get('/categories/fetch', 'CategoryController@fetchAll');
 Route::get('/user/videos/fetch/{page}', 'VideoController@userVideos');
 
 Route::get('/notice/{slug}', 'NoticeController@slug');
+
+Route::get('/referrals', "UserController@referrals");
 
 Route::get('/admin/dashboard', "DashboardController@index")->name('admin.dashboard');
 Route::get('/admin/videos/index', 'VideoController@adminIndex')->name('admin.video.index');

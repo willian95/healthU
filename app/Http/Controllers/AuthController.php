@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\User;
 
 class AuthController extends Controller
@@ -15,8 +16,9 @@ class AuthController extends Controller
         return view('login');
     }
 
-    function registerIndex(){
-        return view('register');
+    function registerIndex($affiliate = null){
+        
+        return view('register', ["affiliate" => $affiliate]);
     }
 
     function register(RegisterRequest $request){
@@ -27,6 +29,13 @@ class AuthController extends Controller
             $user->name = $request->name;
             $user->nickname = $request->nickname;
             $user->email = $request->email;
+            $user->affiliate_key = Str::random(40);
+
+            if($request->affiliate != ""){
+                $parent = User::where('affiliate_key', $request->affiliate)->first();
+                $user->parent_id = $parent->id;
+            }
+            
             $user->password = bcrypt($request->password);
             $user->save();
 
@@ -36,7 +45,7 @@ class AuthController extends Controller
 
         }catch(\Exception $e){
             
-            return response()->json(["success" => false, "msg" => "Error en el servidor"]);
+            return response()->json(["success" => false, "msg" => "Error en el servidor", "err" => $e->getMessage(), "ln" => $e->getLine()]);
 
         }
 
