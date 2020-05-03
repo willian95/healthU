@@ -12,9 +12,9 @@ Version: 1.0
     ga('create', 'UA-120909275-1', 'auto');
     ga('send', 'pageview');
     
-    $("body").on("contextmenu",function(e){
-            return false;
-        });
+   // $("body").on("contextmenu",function(e){
+          //  return false;
+     //   });
     $(document).keydown(function(e){
              /*if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)){
                return false;

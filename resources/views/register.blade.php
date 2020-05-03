@@ -25,6 +25,10 @@
                         <label>Email</label>
                         <input type="text" class="form-control" placeholder="john@email.com" v-model="email">
                     </div>
+                     <div class="form-group">
+                        <label>Billetera</label>
+                        <input type="text" class="form-control" placeholder="Billetera" v-model="wallet">
+                    </div>
                     <div class="form-group">
                         <label>Clave</label>
                         <input type="password" class="form-control" placeholder="clave" v-model="password">
@@ -86,6 +90,7 @@
                     name:"",
                     nickname:"",
                     email:'',
+                    wallet:'',
                     password:"",
                     password_confirmation:""
                 }
@@ -97,6 +102,7 @@
                     let formData = new FormData()
                     formData.append("name", this.name)
                     formData.append("email", this.email)
+                    formData.append("wallet", this.wallet)
                     formData.append("nickname", this.nickname)
                     formData.append("password", this.password)
                     formData.append("password_confirmation", this.password_confirmation)

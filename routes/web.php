@@ -27,6 +27,8 @@ Route::get('/upload', "VideoController@upload");
 Route::post('/upload', "VideoController@store");
 
 Route::get('/account', 'UserController@account');
+Route::post('/account/update', 'AccountController@accountUpdate')->name('account.update');
+Route::post('/account/fetch', 'AccountController@getUser')->name('account.getUser');
 Route::get('/account/notices/fetch', 'AccountController@getNotices');
 Route::get('/account/profile', 'AccountController@profile');
 Route::get('/account/channel/index', 'ChannelController@index');
