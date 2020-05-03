@@ -1121,6 +1121,7 @@ Version: 1.0
      border-radius: 50px;
      height: 90px;
      width: 90px;
+     position: absolute;
 }
  .social {
      color: #fff;
@@ -1595,3 +1596,6 @@ Version: 1.0
  @media (min-width: 1200px) {
 
 }
+
+
+

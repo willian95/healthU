@@ -36,6 +36,7 @@ class AuthController extends Controller
                 $user->parent_id = $parent->id;
             }
             
+            $user->wallet = $request->wallet;
             $user->password = bcrypt($request->password);
             $user->save();
 

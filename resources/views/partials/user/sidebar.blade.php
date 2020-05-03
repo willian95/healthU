@@ -2,39 +2,39 @@
     <li class="nav-item active">
         <a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/index.html">
             <i class="fas fa-fw fa-home"></i>
-            <span>Home</span>
+            <span>Dashboard</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/channels.html">
             <i class="fas fa-fw fa-users"></i>
-            <span>Channels</span>
+            <span>Balance</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/single-channel.html">
             <i class="fas fa-fw fa-user-alt"></i>
-            <span>Single Channel</span>
+            <span>Categorias</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/video-page.html">
             <i class="fas fa-fw fa-video"></i>
-            <span>Video Page</span>
+            <span>Top Trainers</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/upload-video.html">
             <i class="fas fa-fw fa-cloud-upload-alt"></i>
-            <span>Upload Video</span>
+            <span>Afiliados</span>
         </a>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <span>Noticias</span>
         </a>
-        <div class="dropdown-menu">
+        <!--div class="dropdown-menu">
             <h6 class="dropdown-header">Login Screens:</h6>
             <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/login.html">Login</a>
             <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/register.html">Register</a>
@@ -43,15 +43,15 @@
             <h6 class="dropdown-header">Other Pages:</h6>
             <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/404.html">404 Page</a>
             <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/blank.html">Blank Page</a>
-        </div>
+        </div-->
     </li>
     <li class="nav-item">
         <a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/history-page.html">
             <i class="fas fa-fw fa-history"></i>
-            <span>History Page</span>
+            <span>Soporte</span>
         </a>
     </li>
-    <li class="nav-item dropdown">
+    <!--li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/categories.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-list-alt"></i>
             <span>Categories</span>
@@ -61,7 +61,7 @@
             <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/categories.html">Music</a>
             <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/categories.html">Television</a>
         </div>
-    </li>
+    </li-->
     <li class="nav-item channel-sidebar-list">
         <h6>SUBSCRIPTIONS</h6>
         <ul>

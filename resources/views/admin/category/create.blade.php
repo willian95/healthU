@@ -9,6 +9,7 @@
             </div>
         </div>
 
+        <!-- imagen, importante el @change en input -->
         <div class="row">
             <div class="col-12">
                 <label for="">Imagen</label>
@@ -16,6 +17,7 @@
             </div>
         </div>
 
+        <!-- visualizar preview -->
         <div class="row" v-if="imagePreview != ''">
             <div class="col-12">
                 <img :src="imagePreview" alt="" style="width: 30%;">
@@ -50,13 +52,13 @@
             data(){
                 return{
                     name:"",
-                    image:"",
-                    imagePreview:""
+                    image:"", //datos de imagen a enviar al servidor
+                    imagePreview:"" //imagen preview
                 }
             },
             methods:{
                 
-                store(){
+                store(){ //envías al servidor a category controller store()
 
                     let formData = new FormData
                     formData.append('name', this.name)
@@ -85,7 +87,7 @@
                     })
 
                 },
-                onImageChange(e){
+                onImageChange(e){ //funcion para obtener los datos del preview de imagen
                     this.image = e.target.files[0];
                     this.imagePreview = URL.createObjectURL(this.image);
                     let files = e.target.files || e.dataTransfer.files;
@@ -93,7 +95,7 @@
                         return;
                     this.createImage(files[0]);
                 },
-                createImage(file) {
+                createImage(file) {// crea imagn para enviar al servidor
                     let reader = new FileReader();
                     let vm = this;
                     reader.onload = (e) => {
