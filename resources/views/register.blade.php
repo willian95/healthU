@@ -13,33 +13,57 @@
                     <p>It is a long established fact that a reader <br> will be distracted by the readable.</p>-->
                     </div>
                     <!--<form action="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/index.html">-->
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" class="form-control" placeholder="¿Como te llamas?" v-model="name">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" placeholder="¿Como te llamas?" v-model="name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Apellido</label>
+                            <input type="text" class="form-control" placeholder="¿Cual es tu Apellido?" v-model="last_name">
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Nickname</label>
+                            <input type="text" class="form-control" placeholder="¿Como te llamas?" v-model="nickname">
+                        </div>
+                        <div class="form-group  col-md-6">
+                            <label>Email</label>
+                            <input type="text" class="form-control" placeholder="john@email.com" v-model="email">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label>Nickname</label>
-                        <input type="text" class="form-control" placeholder="¿Como te llamas?" v-model="nickname">
+                        <label>Whatsapp</label>
+                        <input type="number" class="form-control" placeholder="+cod123456789" v-model="whatsapp">
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" class="form-control" placeholder="john@email.com" v-model="email">
+                         <label>Pais</label>
+                         <select id="countrys" class="custom-select" v-model="countryId">
+                                <option :value="country.id" v-for="country in countrys">@{{ country.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                         <label>Direccion</label>
+                         <input type="text" class="form-control" placeholder="calle x avenida y" v-model="address">
+                    </div>
+                     <div class="form-group">
+                        <label>Billetera</label>
+                        <input type="text" class="form-control" placeholder="Codigo de tu wallet" v-model="wallet">
                     </div>
                     <div class="form-group" v-if="affiliate != ''">
                         <label>Código de afiliado</label>
                         <input type="text" class="form-control" v-model="affiliate" readonly>
                     </div>
-                    <div class="form-group">
-                        <label>Billetera</label>
-                        <input type="text" class="form-control" placeholder="Billetera" v-model="wallet">
-                    </div>
-                    <div class="form-group">
-                        <label>Clave</label>
-                        <input type="password" class="form-control" placeholder="clave" v-model="password">
-                    </div>
-                    <div class="form-group">
-                        <label>Confirmar clave</label>
-                        <input type="password" class="form-control" placeholder="Clave" v-model="password_confirmation">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Clave</label>
+                            <input type="password" class="form-control" placeholder="clave" v-model="password">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Confirmar clave</label>
+                            <input type="password" class="form-control" placeholder="Clave" v-model="password_confirmation">
+                        </div>
                     </div>
                     <div class="mt-4">
                         <button type="button" class="btn btn-outline-primary btn-block btn-lg" @click="register()">Sign Up</button>
@@ -92,12 +116,17 @@
             data(){
                 return{
                     name:"",
+                    last_name:"",
                     nickname:"",
                     email:'',
                     wallet:'',
+                    whatsapp:'',
+                    address:'',
+                    affiliate:'{!! $affiliate !!}',
                     password:"",
                     password_confirmation:"",
-                    affiliate:'{!! $affiliate !!}'
+                    countryId:"",
+                    countrys:[]
                 }
             },
             methods:{
@@ -108,9 +137,13 @@
                     formData.append("name", this.name)
                     formData.append("email", this.email)
                     formData.append("wallet", this.wallet)
+                    formData.append("whatsapp", this.whatsapp)
+                    formData.append("address", this.address)
+                    formData.append("last_name", this.last_name)
                     formData.append("nickname", this.nickname)
-                    formData.append("password", this.password)
                     formData.append("affiliate", this.affiliate)
+                    formData.append("country", this.countryId)
+                    formData.append("password", this.password)
                     formData.append("password_confirmation", this.password_confirmation)
 
                     axios.post("{{ url('/register') }}", formData)
@@ -132,15 +165,27 @@
                         });
                     })
 
-                }
+                },
+                fetchCountrys(){
+
+                  axios.get("{{ url('/countrys/country/fetch') }}").then(res => {
+                     this.countrys = res.data 
+                  })
+
+               }
 
             },
             mounted(){
                 //this.test()
+                this.fetchCountrys()
             }
 
         })
 
+
+
+
+    
     </script>
 
 

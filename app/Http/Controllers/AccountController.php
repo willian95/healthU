@@ -23,6 +23,10 @@ class AccountController extends Controller
         return view('profile');
     }
 
+     function myaccount(){
+        return view('myaccount');
+    }
+
     function accountUpdate(Request $request){
 
         try{
@@ -40,7 +44,8 @@ class AccountController extends Controller
         try{
             
             $User = User::find(\Auth::user()->id);
-            $User->name = $request->name;
+            $User->whatsapp = $request->whatsapp;
+            $User->address = $request->address;
             if($request->get('image') != null){
                 $User->image = $imagePath;
             }

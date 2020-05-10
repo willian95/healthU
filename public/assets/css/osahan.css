@@ -23,6 +23,7 @@ Version: 1.0
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 
+
  html {
      position: relative;
      min-height: 100%;
@@ -1597,5 +1598,19 @@ Version: 1.0
 
 }
 
+ .navli{
+    padding: 20px 20px 20px 20px;
+    background: linear-gradient(135deg, #4eda92 1%,#56e0cb 100%);;
+    border-radius: 2px;
+    color: #fff;
+    border: 2px solid white;
+    box-shadow: 0 0 11px #ececec;
+}
+.textli{
+    color: #fff;
+}
+
+
+     
 
 

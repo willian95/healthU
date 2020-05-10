@@ -17,26 +17,52 @@
             </div>
 
             <div class="row">
-                <div class="col-6">
-                    <label for="">Nombre</label>
-                    <input type="text" class="form-control" v-model="name">
+                    <div class="col-6">
+                        <label for="">Nombre</label>
+                        <input type="text" class="form-control" v-model="name" readonly>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Apellido</label>
+                        <input type="text" class="form-control" v-model="last_name" readonly>
+                    </div>    
                 </div>
-                <div class="col-6">
-                    <label for="">NickName</label>
-                    <input type="text" class="form-control" v-model="nickname" readonly>
-                </div>        
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <label for="">Email</label>
-                    <input type="text" class="form-control" v-model="email" readonly>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">NickName</label>
+                        <input type="text" class="form-control" v-model="nickname" readonly>
+                    </div>   
+                    <div class="col-6">
+                        <label for="">Whatsapp</label>
+                        <input type="text" class="form-control" v-model="nickname" >
+                    </div>         
                 </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Billetera</label>
+                        <input type="text" class="form-control" v-model="wallet" readonly>
+                    </div>
+                     <div class="col-6">
+                        <label for="">Pais</label>
+                        <input type="text" class="form-control" v-model="country" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="">Direccion</label>
+                        <input type="text" class="form-control" v-model="address" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Email</label>
+                        <input type="text" class="form-control" v-model="email" readonly>
+                    </div>
 
-                <div class="col-6">
-                    <label for="">Imagen</label>
-                    <input type="file" id="image" class="form-control" @change="onImageChange" accept="image/*">
+                    <div class="col-6">
+                        <label for="">Imagen</label>
+                        <input type="file" id="image" class="form-control" @change="onImageChange" accept="image/*">
+                    </div>
                 </div>
-            </div>
         
             
             <div class="row mt-3" v-if="imagePreview != ''">
@@ -79,22 +105,28 @@
         const app = new Vue({
             el: '#dev-app',
             data(){
-                return{
+                 return{
                     name:'{!! Auth::user()->name !!}',
                     nickname:'{!! Auth::user()->nickname !!}',
                     email:'{!! Auth::user()->email !!}',
+                    wallet:'{!! Auth::user()->wallet !!}',
+                    last_name:'{!! Auth::user()->last_name !!}',
+                    country:'{!! Auth::user()->country !!}',
+                    address:'{!! Auth::user()->address !!}',
+                    whatsapp:'{!! Auth::user()->whatsapp !!}',
                     affiliateKey: "{{ url('/register/affiliate/') }}"+"/"+'{!! Auth::user()->affiliate_key !!}',
                     referrals:[],
                     image:"", //datos de imagen a enviar al servidor
-                    imagePreview:'{{ url(Auth::user()->email) }}'
+                    imagePreview:""
                 }
             },
             methods:{
                 accountUpdate(){ //envías al servidor a category controller store()??
 
                     let formData = new FormData
-                    formData.append('name', this.name)
                     formData.append('image', this.image)
+                    formData.append('whatsapp', this.whatsapp)
+                    formData.append('address', this.address)
 
                     axios.post("{{ route('account.update') }}", formData,{ headers: { 'Content-Type': 'multipart/form-data'} })
                     .then(res => {

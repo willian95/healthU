@@ -35,7 +35,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown" id="user-dropdown">
                 
                 <a class="dropdown-item" href="{{ url('/account') }}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
-                <a class="dropdown-item" href="{{ url('/account/profile') }}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; Perfil</a>
+                <a class="dropdown-item" href="{{ url('/myaccount') }}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; Perfil</a>
                 <!--<a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
                 <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>-->
                 <div class="dropdown-divider"></div>

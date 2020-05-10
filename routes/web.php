@@ -19,13 +19,17 @@ Route::get('/', function () {
 
 Route::get('/login', "AuthController@loginIndex");
 Route::get('/register/', "AuthController@registerIndex");
-Route::get('/register/affiliate/{affiliate}', "AuthController@registerIndex");
 Route::post('/register', "AuthController@register");
+Route::get('/register/affiliate/{affiliate}', "AuthController@registerIndex");
 Route::post('/login', "AuthController@login");
 Route::get('/logout', "AuthController@logout");
 
+Route::get('/countrys/country/fetch', "LocationController@fetchCountry");
+
 Route::get('/upload', "VideoController@upload");
 Route::post('/upload', "VideoController@store");
+
+Route::get('/myaccount/', 'AccountController@myaccount');
 
 Route::get('/account', 'UserController@account');
 Route::post('/account/update', 'AccountController@accountUpdate')->name('account.update');
