@@ -8,6 +8,7 @@ use App\User;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use App\Http\Controllers\Hash;
 
 class AccountController extends Controller
 {
@@ -54,6 +55,27 @@ class AccountController extends Controller
             return response()->json(["success" => true, "msg" => "Datos Actualizados"]);
 
         }catch(\Exception $e){
+            return response()->json(["success" => false, "msg" => "error en el servidor", "err" => $e->getMessage(), "ln" => $e->getLine()]);
+        }
+
+    }
+
+    function accountUpdatePass(Request $request){   
+        try{
+            if($request->pass_new == $request->confirmPassNew){  
+                if (\Hash::check($request->pass_new, \Auth::user()->password)){               
+                    $User = User::find(\Auth::user()->id);
+                    $User->password = Hash::make($request->pass_new);
+                    $User->update();
+                    return response()->json(["success" => true, "msg" => "Contraseña actualizada"]);
+                }else{
+                    return response()->json(["success" => false, "msg" => "Su contraseña actual no coincide"]);
+                }
+            }else{
+                  return response()->json(["success" => false, "msg" => "Sus nuevas contraseñas deben coincidir"]);
+            }
+
+         }catch(\Exception $e){
             return response()->json(["success" => false, "msg" => "error en el servidor", "err" => $e->getMessage(), "ln" => $e->getLine()]);
         }
 

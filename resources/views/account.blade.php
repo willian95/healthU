@@ -131,17 +131,145 @@
                                                             </div>
 
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label for="">Contraseña</label>
-                                                                    <input type="text" class="form-control" v-model="name" readonly>
+                                                                <div class="col-md-12">
+                                                                    <label for="">Contraseña Actual</label>
+                                                                    <input type="text" class="form-control" v-model="pass_actual" >
                                                                 </div>
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-12">
+                                                                    <label for="">Contraseña</label>
+                                                                    <input type="text" class="form-control" v-model="pass_new" >
+                                                                </div>
+                                                                <div class="col-md-12">
                                                                     <label for="">Repetir Contraseña</label>
-                                                                    <input type="text" class="form-control" v-model="last_name" readonly>
+                                                                    <input type="text" class="form-control" v-model="confirmPassNew" >
                                                                 </div>    
                                                             </div>
 
                                                             <br><center><button class="btn btn-success" @click="securityUpdate()">Actualizar</button></center>      
+                                                        </div>
+                                                  </p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="tab-pane" id="tab3">
+                                              <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="grid3">
+                                                       <div class="container-fluid pb-0 col-12">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <h3 class="text-center">Resumen</h3>
+                                                                </div>
+                                                                <table style="width:100%">  
+                                                                <h4>Referidos</h4>                                                     
+                                                              <tr>
+                                                                <th>Id</th>
+                                                                <th>Email</th>
+                                                                <th>Fecha de activacion</th>
+                                                              </tr>
+                                                              <tr v-for="referido in referrals" >
+                                                               <td>@{{referido.id}}</td>
+                                                                  <td>@{{referido.user.email}}</td>
+                                                                <td>@{{referido.id}}</td>
+                                                              </tr>
+                                                            </table>
+                                                         
+                                                            <table style="width:100%;" >  
+                                                                 <br>
+                                                                <h4 style="margin-top: 5px;">Balances</h4>                                                     
+                                                              <tr>
+                                                                <th>Balance de retiro</th>
+                                                                <th>Balance de deposito</th>
+                                                                <th>balance total</th>
+                                                              </tr>
+                                                              <tr  >
+                                                               <td>100000</td>
+                                                                  <td>74444</td>
+                                                                <td>87658494</td>
+                                                              </tr>
+                                                            </table>
+                                                            </div>
+
+                                                                <section id="faqs" class="section lb" style="padding-top: 4%; margin-bottom: 400px;">
+
+           <center> <h1 class="title-b">Preguntas Frecuentes</h1></center><br>
+  
+        
+            <div class="container align-items-center">
+                <div class="col-lg-8 col-md-8">
+                    <div class="accordion" id="accordionExample">
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <h5 class="mb-0">
+                            <a href="" class="btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                ¿Que es Healthu?
+                            </a>
+                          </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                          <div class="card-body">
+                            Healthu es la plataforma interactiva para el cuidado de la salud a traves de entrenamientos
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header" id="headingTwo">
+                          <h5 class="mb-0">
+                            <a href="" class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                 ¿Por que Healthu?
+                            </a>
+                          </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                          <div class="card-body">
+                            Healthu surge  de 
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <h5 class="mb-0">
+                            <a href="" class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                             ¿Como puedo usar mis Healthu?
+                            </a>
+                          </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                          <div class="card-body">
+                        otra cosa
+                          </div>
+                        </div>
+
+                      </div>
+                        <div class="card">
+                        <div class="card-header" id="headingFour">
+                          <h5 class="mb-0">
+                            <a href="" class="btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                            ¿Mis Healthu que valor tienen?
+                            </a>
+                          </h5>
+                        </div>
+
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                          <div class="card-body">
+                            El valor del Healthu varia segun el mercado, actualmente 1 Healthu equiale a un 1$ .
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="faq-right">
+                        <img src="images/ask22.png" class="img-fluid" alt="" />
+                    </div>
+                </div>
+            </div>
+    
+    
+    </section>
+
+                                                               
                                                         </div>
                                                   </p>
                                                 </div>
@@ -184,7 +312,10 @@
                     pages:[],
                     channels:[],
                     image:"", //datos de imagen a enviar al servidor
-                    imagePreview:""
+                    imagePreview:"",
+                     pass_new:"", //datos de imagen a enviar al servidor
+                    pass_actual:"",
+                    confirmPassNew:""
                     
                 }
             },
@@ -218,23 +349,30 @@
                     })
 
                 },
+                data(){
+                return{
+                   
+
+                    
+                }
+            },
                 securityUpdate(){ //envías al servidor a category controller store()??
 
                     let formData = new FormData
-                    formData.append('whatsapp', this.whatsapp)
-                    formData.append('address', this.address)
-                    formData.append('image', this.image)
+                    formData.append('pass_new', this.pass_new)
+                    formData.append('pass_actual', this.pass_actual)
+                    formData.append('confirmPassNew', this.confirmPassNew
+                        )
 
-                    axios.post("{{ route('account.update') }}", formData,{ headers: { 'Content-Type': 'multipart/form-data'} })
+                    axios.post("{{ route('account.passUpdate') }}", formData,{ headers: { 'Content-Type': 'multipart/form-data'} })
                     .then(res => {
 
                         if(res.data.success == true){
                             alert(res.data.msg)
 
-                            this.name = ""
-                            this.image = ""
-                            this.imagePreview = ""
-                            $("#image").val(null)
+                            this.pass_new = ""
+                            this.pass_actual = ""
+                            this.confirmPassNew = ""
 
                         }else{
                             alert(res.data.msg)

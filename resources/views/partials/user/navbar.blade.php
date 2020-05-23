@@ -7,7 +7,7 @@
         <!-- Navbar Search -->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
+                <input type="text" class="form-control" placeholder="Buscar...">
                 <div class="input-group-append">
                     <button class="btn btn-light" type="button">
                         <i class="fas fa-search"></i> 
@@ -22,7 +22,7 @@
                 <li class="nav-item mx-1">
                     <a class="nav-link" href="{{ url('/upload') }}">
                         <i class="fas fa-plus-circle fa-fw"></i>
-                        Upload Video
+                        Subir Videos
                     </a>
                 </li>
             @endif
@@ -34,30 +34,30 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown" id="user-dropdown">
                 
-                <a class="dropdown-item" href="{{ url('/account') }}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
+                <a class="dropdown-item" href="{{ url('/account') }}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; Mi cuenta</a>
                 <a class="dropdown-item" href="{{ url('/myaccount') }}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; Perfil</a>
                 <!--<a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
                 <a class="dropdown-item" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>-->
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Salir</a>
             </div>
         </li>
         <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
             <a class="nav-link dropdown-toggle user-dropdown-link">
-                $ 0.00
+                HU 0.00
             </a>
         </li>
         @else
         <li class="nav-item mx-1">
             <a class="nav-link" href="{{ url('/login') }}">
                 <i class="fas fa-plus-circle fa-fw"></i>
-                Login
+                Iniciar sesion
             </a>
         </li>
         <li class="nav-item mx-1">
             <a class="nav-link" href="{{ url('/register') }}">
                 <i class="fas fa-plus-circle fa-fw"></i>
-                Register
+                Registrarse
             </a>
         </li>
         @endif

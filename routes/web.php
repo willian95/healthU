@@ -26,6 +26,9 @@ Route::get('/logout', "AuthController@logout");
 
 Route::get('/countrys/country/fetch', "LocationController@fetchCountry");
 
+Route::get('/categories', "CategoryController@indexUser")->name('categories.indexUser');;
+Route::get('/categories/fetch', 'CategoryController@fetchAll');
+
 Route::get('/upload', "VideoController@upload");
 Route::post('/upload', "VideoController@store");
 
@@ -33,6 +36,8 @@ Route::get('/myaccount/', 'AccountController@myaccount');
 
 Route::get('/account', 'UserController@account');
 Route::post('/account/update', 'AccountController@accountUpdate')->name('account.update');
+Route::post('/account/updatePass', 'AccountController@accountUpdatePass')->name('account.passUpdate');
+
 Route::post('/account/fetch', 'AccountController@getUser')->name('account.getUser');
 Route::get('/account/notices/fetch', 'AccountController@getNotices');
 Route::get('/account/profile', 'AccountController@profile');
@@ -44,13 +49,16 @@ Route::get('/channel/slug/{slug}', 'ChannelController@slug');
 Route::get('/channel/user/fetch', 'ChannelController@fetchChannelByUser');
 Route::get('/channel/video/{channelId}/{page}', 'ChannelController@fetchVideosByChannel');
 
-Route::get('/categories/fetch', 'CategoryController@fetchAll');
 
 Route::get('/user/videos/fetch/{page}', 'VideoController@userVideos');
 
 Route::get('/notice/{slug}', 'NoticeController@slug');
 
 Route::get('/referrals', "UserController@referrals");
+Route::get('/myreferrals', "UserController@myreferrals");
+
+Route::get('/balance', 'BalanceController@index');
+Route::get('/balance/fetch', 'BalanceController@fetchBalance');
 
 Route::get('/admin/dashboard', "DashboardController@index")->name('admin.dashboard');
 Route::get('/admin/videos/index', 'VideoController@adminIndex')->name('admin.video.index');

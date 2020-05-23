@@ -12,7 +12,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/single-channel.html">
+        <a class="nav-link" href="{{ url('/categories')}}">
             <i class="fas fa-fw fa-user-alt"></i>
             <span>Categorias</span>
         </a>
@@ -24,7 +24,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/upload-video.html">
+        <a class="nav-link" href="{{ url('/referrals')}}">
             <i class="fas fa-fw fa-cloud-upload-alt"></i>
             <span>Afiliados</span>
         </a>

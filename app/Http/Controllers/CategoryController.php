@@ -15,6 +15,10 @@ class CategoryController extends Controller
         return view('admin.category.index');
     }
 
+    function indexUser(){
+        return view('categories');
+    }
+
     function create(){
         return view('admin.category.create');
     }
@@ -80,8 +84,8 @@ class CategoryController extends Controller
     function fetchAll(){
 
         $categories = Category::all();
-        return response()->json($categories);
-
+        //return response()->json($categories);
+        return response()->json(["success" => true, "categories" => $categories]);
     }
 
     function delete(Request $request){

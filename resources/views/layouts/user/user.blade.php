@@ -20,6 +20,7 @@
         <!-- Owl Carousel -->
         <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.css') }}">
+       <link rel="stylesheet" href=" https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     </head>
         <body id="page-top">
 
@@ -35,6 +36,9 @@
             </div>
             
             <!-- Bootstrap core JavaScript-->
+            <script src="  https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+             
             <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
             <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
             <!-- Core plugin JavaScript-->

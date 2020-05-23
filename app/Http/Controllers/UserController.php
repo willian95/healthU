@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Referidos;
 
 class UserController extends Controller
 {
@@ -73,12 +74,22 @@ class UserController extends Controller
 
     }
 
+     function myreferrals(){
+
+        return view('referrals');
+
+    }
+
     function referrals(){
         
         try{
 
-            $referrals = User::where('parent_id', \Auth::user()->id)->get();
+          //  $referrals = User::where('parent_id', \Auth::user()->id)->get();
+          //  return response()->json(["success" => true,"referrals" => $referrals]);
+
+            $referrals = Referidos::with('user')->get();
             return response()->json(["success" => true,"referrals" => $referrals]);
+
 
         }catch(\Exception $e){
 
