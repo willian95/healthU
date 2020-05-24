@@ -30,11 +30,15 @@
                <div class="channel-profile" style=" height: 100%;"   >
                   <div class="row">
                      <div class="col-4">
-                  <img class="channel-profile-img" alt="" src="{{url('/images/user/')}}/{!! Auth::user()->image !!}" style=" width: 220px; height: 220px; margin: 2em 8em; box-shadow: 0 0 11px #07bf67;">
-                  </div>
+                        @if(\Auth::check() && Auth::user()->id)
+                           <img class="channel-profile-img" alt="" src="{{url('/images/user/')}}/{!! Auth::user()->image !!}" style=" width: 220px; height: 220px; margin: 2em 8em; box-shadow: 0 0 11px #07bf67;">
+                        @endif
+                     </div>
                     <div class="col-4" >
+                     @if(\Auth::check() && Auth::user()->id)
                         <h2 style="text-align: center; color: black; font-style: 40px; margin: 1em; ">{!! Auth::user()->name !!}</h2>
                          <center><img class="img" alt="" src="{{url('/images/rango/rango1.jpg')}}" style="width: 150px; box-shadow: 0 0 11px #07bf67; height: 150px; border-radius: 50%;"></center>
+                     @endif
                   </div>
                   <div class="col-4" style="">
                      <div class="content-wrapper" style="margin: 2em 1em; display: flex;">

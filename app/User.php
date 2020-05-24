@@ -41,4 +41,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Video');
     }
 
+    public function deposits(){
+        return $this->hasMany(Depositos::class);
+    }
+
 }

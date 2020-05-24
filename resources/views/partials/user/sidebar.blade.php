@@ -6,7 +6,8 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/channels.html">
+        <!--<a class="nav-link" href="https://askbootstrap.com/preview/vidoe-v2-1/theme-three/channels.html">-->
+        <a class="nav-link" href="{{ url('/balance') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Balance</span>
         </a>

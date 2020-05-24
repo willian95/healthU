@@ -39,6 +39,12 @@
                 </li>
 
                 <li class="sidenav-item">
+                    <a href="{{ route('admin.deposit.index') }}" class="sidenav-link">
+                        <div>Depositos</div>
+                    </a>
+                </li>
+
+                <li class="sidenav-item">
                     <a href="{{ route('admin.notice.index') }}" class="sidenav-link">
                         <div>Noticias</div>
                     </a>

@@ -19,7 +19,7 @@ class CreateDepositosTable extends Migration
             $table->string("fecha_de_transaccion");
             $table->double('monto');
             $table->string("hash");
-            $table->integer("status");
+            $table->integer("status"); // 0 en proceso - 1 aceptado - 2 rechazado
             $table->timestamps();
         });
     }

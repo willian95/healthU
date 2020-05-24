@@ -59,6 +59,7 @@ Route::get('/myreferrals', "UserController@myreferrals");
 
 Route::get('/balance', 'BalanceController@index');
 Route::get('/balance/fetch', 'BalanceController@fetchBalance');
+Route::post("/balance/store", "BalanceController@store");
 
 Route::get('/admin/dashboard', "DashboardController@index")->name('admin.dashboard');
 Route::get('/admin/videos/index', 'VideoController@adminIndex')->name('admin.video.index');
@@ -76,6 +77,11 @@ Route::get('/admin/notice/create', 'NoticeController@create')->name('admin.notic
 Route::get('/admin/notice/fetch/{page}', 'NoticeController@fetch')->name('admin.notice.fetch');
 Route::post('/admin/notice/delete', 'NoticeController@delete')->name('admin.notice.delete');
 Route::post('/admin/notice/store', 'NoticeController@store')->name('admin.notice.store');
+
+Route::get('/admin/deposit/index', 'BalanceController@adminDepositIndex')->name('admin.deposit.index');
+Route::get('/admin/deposit/fetch', 'BalanceController@adminDepositFetch')->name('admin.deposit.fetch');
+Route::post('/admin/deposit/approved', 'BalanceController@approve')->name('admin.deposit.approve');
+Route::post('/admin/deposit/reject', 'BalanceController@reject')->name('admin.deposit.reject');
 
 Route::get('/admin/category/index', 'CategoryController@index')->name('admin.category.index');
 Route::get('/admin/category/create', 'CategoryController@create')->name('admin.category.create');
