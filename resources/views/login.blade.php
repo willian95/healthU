@@ -95,7 +95,7 @@
                             if(res.data.role_id == 3)
                                 window.location.href="{{ url('/admin/dashboard') }}"
                             else
-                                window.location.href="{{ url('/') }}"
+                                window.location.href="{{ url('/welcome') }}"
                         }else{
 
                             alert(res.data.msg)
