@@ -24,7 +24,7 @@
      <link rel="stylesheet" href="{{ asset('assets/css/css-landing/style.css') }}">    
    
      
-       
+       <!---hola-->
 
 
   </head>
